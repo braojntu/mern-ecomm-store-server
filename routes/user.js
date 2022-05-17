@@ -1,4 +1,6 @@
+const CryptoJS = require("crypto-js");
 const User = require("../models/User");
+
 const {
   verifyToken,
   verifyTokenAndAuthorization,
@@ -65,7 +67,6 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //GET USER STATS
-
 router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
